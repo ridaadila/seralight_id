@@ -81,7 +81,11 @@
                       <input type="file" class="form-control" name="foto">
                   </div>
                     <div class="col-md-6">
-                     <img src="{{ asset('static/dist/img/' . $product->photo) }}" width="150px">
+                      @if ($product->photo=='static/dist/img/avatar5.png')
+                      <img src="{{ asset($product->photo) }}" width="150px">
+                      @else
+                      <img src="{{ asset('static/dist/img/' . $product->photo) }}" width="150px">
+                      @endif
                      <input type="hidden" name="foto" value="{{ $product->photo }}">
                   </div>
                 </div>

@@ -33,7 +33,7 @@
                   <div class="col-lg-3 col-md-4">
                     <div class="product">
                       <div class="image">
-                        <a href="{{url('product/detail/' . $products->id_product)}}"><img src="{{ asset('static/dist/img/' . $products->photo) }}" alt="" class="img-fluid image1"></a></div>
+                        <a href="{{url('product/detail/' . $products->id_product)}}"><img src="{{ asset('static/dist/img/' . $products->photo) }}" alt="" class="img-fluid image"></a></div>
                       <div class="text">
                         <h3 class="h5"><a href="{{url('product/detail/' . $products->id_product)}}">
                           {{ $products->name_product }}

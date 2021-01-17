@@ -20,8 +20,9 @@
             <div class="box-header with-border">
               <h3 class="box-title">Add Product</h3>
             </div>
-            <form role="form" action="{{url('admin/product')}}" method="POST" enctype="multipart/form-data">
+            <form role="form" action="{{route('product.store')}}" method="POST" enctype="multipart/form-data">
             {{ csrf_field() }}
+            {{-- {{ method_field('PUT')}} --}}
               <div class="box-body">
                 <div class="form-group">
                   <label for="exampleInputEmail1">Name</label>
@@ -34,15 +35,15 @@
                 </div>
                  <div class="form-group">
                   <label for="exampleInputEmail1">Stock</label>
-                  <input type="number" class="form-control"  placeholder="Enter your Stock" name="stock">
+                  <input type="text" class="form-control"  placeholder="Enter your Stock" name="stock">
                 </div>
                 <div class="form-group">
                   <label for="exampleInputEmail1">Price</label>
-                  <input type="number" class="form-control"  placeholder="Enter your Price" name="price">
+                  <input type="text" class="form-control"  placeholder="Enter your Price" name="price">
                 </div>
                  <div class="form-group">
-                  <label for="exampleInputEmail1">Weight</label>
-                  <input type="number" class="form-control"  placeholder="Enter your Weight" name="weight">
+                  <label for="exampleInputEmail1">Weight ( gram )</label>
+                  <input type="text" class="form-control"  placeholder="Enter your Weight" name="weight">
                 </div>
                 <div class="form-group">
                   <label for="exampleInputPassword1">Category</label>

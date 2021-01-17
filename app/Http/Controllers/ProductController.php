@@ -8,6 +8,7 @@ use App\Product;
 use App\Category;
 use Storage;
 use Alert;
+// use SweetAlert;
 
 
 class ProductController extends Controller
@@ -19,7 +20,7 @@ class ProductController extends Controller
      */
     public function index()
     {
-        $product = Product::all();
+        $product = Product::all()->sortByDesc('id_product');
         return view('admin.product.index', compact('product'));
     }
 
@@ -34,6 +35,10 @@ class ProductController extends Controller
         return view('admin.product.add', compact('category'));
     }
 
+    public function updatesuccess() {
+        return view('admin.product.index');
+    }
+
     /**
      * Store a newly created resource in storage.
      *
@@ -42,6 +47,7 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
+        dd($request);
         $product = new Product;
         if($request->hasFile('foto')) {
             $foto = $request->file('foto');
@@ -63,7 +69,9 @@ class ProductController extends Controller
         $product->id_user = Auth::user()->id_user;
         $product->save();
         Alert::success('Add Product', 'Product Berhasil ditambahkan');
-        return redirect('admin/product');
+        return redirect(route('product.index'));
+        // Alert::success('Add Product', 'Product Berhasil ditambahkan');
+        // return redirect()->back();
     }
 
     /**
@@ -99,6 +107,7 @@ class ProductController extends Controller
      */
     public function update(Request $request, $id)
     {
+        // dd($request);
         $product = Product::findOrFail($id);
         if($request->hasFile('foto')) {
 
@@ -126,7 +135,7 @@ class ProductController extends Controller
         $product->id_user = Auth::user()->id_user;
         $product->save();
         Alert::success('Update Product', 'Product Berhasil diupdate');
-        return redirect('admin/product');
+        return redirect(route('product.index'));
     }
 
     /**

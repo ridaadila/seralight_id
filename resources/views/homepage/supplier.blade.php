@@ -34,8 +34,13 @@
                   @foreach($supplier as $sup)
                   <div class="col-md-2 col-sm-3">
                     <div data-animate="fadeInUp" class="team-member">
+                      @if ($sup->photo=='static/dist/img/avatar5.png')
                       <div class="image"><a href="{{url('penjual/' . $sup->id_user)}}"><img src="{{asset($sup->photo)}}" alt="" class="img-fluid rounded-circle"></a></div>
-                      <h3><a href="#">{{$sup->name_user}}</a></h3>
+                      @else
+                      <div class="image"><a href="{{url('penjual/' . $sup->id_user)}}"><img src="{{asset('static/dist/img/' . $sup->photo)}}" alt="" class="img-fluid rounded-circle"></a></div>
+                      
+                      @endif
+                     <h3><a href="{{url('penjual/' . $sup->id_user)}}">{{$sup->name_user}}</a></h3>
                       <p class="role">{{date('d/m/y', strtotime($sup->created_at))}}</p>
                     </div>
                   </div>

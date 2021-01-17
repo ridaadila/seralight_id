@@ -32,7 +32,13 @@
             		<tr><th>Name</th><td>{{ $penjual->name_user }}</td></tr>
             		<tr><th>Emai</th><td>{{ $penjual->email }}</td></tr>
             		<tr><th>Address</th><td>{{ $penjual->address }}</td></tr>
-            		<tr><th>Photo</th><td><img src="{{ url($penjual->photo) }}" width="70px"/></td></tr>
+            		<tr><th>Photo</th><td>
+                  @if ($penjual->photo=='static/dist/img/avatar5.png')
+                  <img src="{{ url($penjual->photo) }}" width="100px" height="200px"></td></tr>
+                  @else
+                  <img src="{{ url('static/dist/img/' . $penjual->photo) }}" width="100px" height="200px"></td></tr>
+                  @endif
+                  
             		<tr><th>Tanggal Bergabung</th><td>{{ date('d/m/y',strtotime($penjual->created_at)) }}</td></tr>
             	</table>
             </div>
@@ -48,7 +54,7 @@
                   <div class="col-lg-3 col-md-4">
                     <div class="product">
                       <div class="image">
-                        <a href="{{ url('product/detail/'.$product->id_product) }}"><img src="{{ asset('static/dist/img/' . $product->photo) }}" alt="" class="img-fluid image1"></a></div>
+                        <a href="{{ url('product/detail/'.$product->id_product) }}"><img src="{{ asset('static/dist/img/' . $product->photo) }}" alt="" class="img-fluid image"></a></div>
                       <div class="text">
                         <h3 class="h5"><a href="{{ url('product/detail/'.$product->id_product) }}">
                           {{ $product->name_product }}

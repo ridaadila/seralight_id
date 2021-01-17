@@ -28,7 +28,7 @@
               <div id="productMain" class="row">
                 <div class="col-sm-6">
                   <div data-slider-id="1" class="owl-carousel shop-detail-carousel">
-                    <div> <img src=" {{asset('static/dist/img/' . $product->photo)}}" alt="" class="img-fluid"></div>
+                    <div> <img src=" {{asset('static/dist/img/' . $product->photo)}}" alt="" width="150px" height="400px"></div>
                    {{--  <div> <img src="img/detailbig2.jpg" alt="" class="img-fluid"></div>
                     <div> <img src="img/detailbig3.jpg" alt="" class="img-fluid"></div> --}}
                   </div>
@@ -85,6 +85,25 @@
                 <h4>Product details</h4>
                 {!! $product->description !!}
               </div>
+              <div id="disqus_thread"></div>
+<script>
+    /**
+    *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+    *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables    */
+    
+    var disqus_config = function () {
+    this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+    this.page.identifier = <?php echo $product->id_product ?>; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+    
+    (function() { // DON'T EDIT BELOW THIS LINE
+    var d = document, s = d.createElement('script');
+    s.src = 'https://seralightid-com-3.disqus.com/embed.js';
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
             <!-- <div class="row"> -->
             </div>
             <div class="col-md-3">

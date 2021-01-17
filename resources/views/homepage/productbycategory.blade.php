@@ -31,7 +31,7 @@
                   @foreach($category->product as $pro)
                   <div class="col-lg-4 col-md-6">
                     <div class="product">
-                      <div class="image"><a href="{{url('product/detail/' . $pro->id_product)}}"><img src="{{asset('static/dist/img/' . $pro->photo)}}" alt="" class="img-fluid image1"></a></div>
+                      <div class="image"><a href="{{url('product/detail/' . $pro->id_product)}}"><img src="{{asset('static/dist/img/' . $pro->photo)}}" alt="" class="img-fluid image"></a></div>
                       <div class="text">
                         <h3 class="h5"><a href="{{url('product/detail/' . $pro->id_product)}}">{{$pro->name_product}}</a></h3>
                         <p class="price">Rp. {{ number_format($pro->price)}}</p>
