@@ -44,12 +44,12 @@ class AuthController extends Controller
             'remember_token' => $remember_token,
         ]);
         User::create($mydata);
-        Mail::send('home', array('firstname'=>$request['name'], 'remember_token'=>$remember_token), function ($message) use($request) {
-            $message->from('seralightid@gmail.com', 'SERALIGHT.ID');
-            $message->to($request['email'], 'Verifikasi');
-            $message->subject('Verifikasi Email untuk Pendaftaran pada SERALIGHT.ID');
-        });
-        Alert::info('Register', 'Pendaftaran selesai, silahkan cek email anda untuk verifikasi akun');
+        // Mail::send('home', array('firstname'=>$request['name'], 'remember_token'=>$remember_token), function ($message) use($request) {
+        //     $message->from('seralightid@gmail.com', 'SERALIGHT.ID');
+        //     $message->to($request['email'], 'Verifikasi');
+        //     $message->subject('Verifikasi Email untuk Pendaftaran pada SERALIGHT.ID');
+        // });
+        Alert::info('Register', 'Pendaftaran selesai, silahkan lakukan login');
         return redirect('/');
     }
 
